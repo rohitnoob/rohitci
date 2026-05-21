@@ -30,6 +30,7 @@ jobs:
           export KUBECONFIG=$HOME/.kube/config
           kubectl apply -f deploy.yml --validate=false
           kubectl apply -f service.yml --validate=false
+          kubectl port-forward svc/shivamwedding 0.0.0.0:8000:8000
 
       - name: Restart Deployment
         run: |
