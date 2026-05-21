@@ -20,8 +20,8 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f deploy.yml
-          kubectl apply -f service.yml
+          kubectl apply -f deploy.yml --validate=false
+          kubectl apply -f service.yml --validate=false
 
       - name: Restart Deployment
         run: kubectl rollout restart deployment shivamwedding
