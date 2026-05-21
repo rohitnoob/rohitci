@@ -21,7 +21,7 @@ jobs:
         uses: OWASP/dependency-check-action@v2
         with:
           project: 'shivamwed'
-          scan: './**/*.js'
+          scan: '.'
           format: 'ALL'
           failOnCVSS: '7.0'
 
