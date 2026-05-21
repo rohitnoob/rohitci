@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shivamwedding
+  labels:
+    app: shivamwedding
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shivamwedding
+  template:
+    metadata:
+      labels:
+        app: shivamwedding
+    spec:
+      containers:
+      - name: shivamwedding
+        image: shivamwed:v1
+        imagePullPolicy: Never
+        ports: 
+        - containerPort: 8000
+        command: ["python3", "-m", "http.server", "8000"]
