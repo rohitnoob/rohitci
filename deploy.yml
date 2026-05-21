@@ -16,8 +16,7 @@ spec:
     spec:
       containers:
       - name: shivamwedding
-        image: shivamwed:v1
-        imagePullPolicy: Never
+        image: rohitnoob/shivamwed:v1
         ports: 
         - containerPort: 8000
         command: ["python3", "-m", "http.server", "8000"]
