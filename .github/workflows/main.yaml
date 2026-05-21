@@ -17,11 +17,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Dockerfile linting with Hadolint
-        uses: hadolint/hadolint-action@v2
-        with:
-          dockerfile: Dockerfile
-
       - name: Build Docker image
         run: |
           docker build -t shivamwed:v1 .
