@@ -17,13 +17,10 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Dockerfile scan with trivy
-        uses: aquasecurity/trivy-action@v0.2.0
+      - name: Dockerfile linting with Hadolint
+        uses: hadolint/hadolint-action@v1
         with:
-          image-ref: 'Dockerfile'
-          format: 'table'
-          severity: 'HIGH,CRITICAL'
-          exit-code: '1'
+          dockerfile: Dockerfile
 
       - name: Build Docker image
         run: |
@@ -31,7 +28,7 @@ jobs:
 
       - name: Run container and verify app
         run: |
-          docker run -d --name shivamwed:v1 -p 8000:8000 shivamwed:v1
+          docker run -d --name shivamwed -p 8000:8000 shivamwed:v1
           sleep 5
           curl --fail http://localhost:8000/
         shell: bash
